@@ -1,0 +1,1 @@
+switch 可使用的类型：byte, short, char, int, enum

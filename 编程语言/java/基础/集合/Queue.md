@@ -1,0 +1,1 @@
+Queue 是 Collection 的子接口，表示先进先出的队列，在尾部添加，从头部查看或删除。Deque 是 Queue 的子接口，表示更为通用的双端队列，可在头或尾进行查看、添加和删除。普通队列有两个主要的实现类，LinkedList 和 ArrayDeque，其中 LinkedList 基于链表实现，ArrayDeque 基于循环数组实现，一般而言，如果只需要 Deque 接口，ArrayDeque 的效率更高一些。Deque 有一个特殊的实现类 PriorityQueue，表示优先级队列，内部用堆实现的
