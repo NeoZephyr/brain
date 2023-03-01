@@ -146,8 +146,11 @@ public class ChannelOption<T> extends AbstractConstant<ChannelOption<T>> {
 public abstract
 	class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C extends Channel>
 	implements Cloneable {
-	this.handler = ObjectUtil.checkNotNull(handler, "handler");
-	return self();
+
+	public B handler(ChannelHandler handler) {
+		this.handler = ObjectUtil.checkNotNull(handler, "handler");
+		return self();
+	}
 }
 ```
 
@@ -195,6 +198,7 @@ public abstract class ChannelInitializer<C extends Channel>
 	private final Set<ChannelHandlerContext> initMap = Collections.newSetFromMap(  
         new ConcurrentHashMap<ChannelHandlerContext, Boolean>());
 
+	// 自定义的初始化逻辑
 	protected abstract void initChannel(C ch) throws Exception;
 
 	public final void channelRegistered(ChannelHandlerContext ctx)
@@ -215,7 +219,6 @@ public abstract class ChannelInitializer<C extends Channel>
 		}
 	}
 
-	// 自定义的初始化逻辑
 	private boolean initChannel(ChannelHandlerContext ctx) throws Exception {
 	
 		if (initMap.add(ctx)) {
