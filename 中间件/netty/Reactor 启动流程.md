@@ -1193,3 +1193,5 @@ public abstract class AbstractNioChannel extends AbstractChannel {
 	}
 }
 ```
+
+![[netty.png]]
